@@ -1,0 +1,15 @@
+<section class="board">
+    
+  <div class="container">
+      <div class="row">
+
+          <div *ngFor="let column of columns" class="col-md-3 col-6">
+              <app-note *ngFor="let noteData of column" [note]="noteData"></app-note>
+          </div>
+
+      </div>
+  </div>
+  
+</section>
+
+<app-add-button (addButtonClick) = "onAddButton()"></app-add-button>
