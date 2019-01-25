@@ -9,13 +9,12 @@
     align-items: center;
     border: none;
     background-color: #39b9ff;
-    color: #fff;
     border-radius: 50%;
     font-size: 35px;
     width: 60px;
     height: 60px;
     cursor: pointer;
-    outline: none !important;
+    outline: none;
     transition: 0.2s;
 }
 .add_button:hover{
@@ -24,4 +23,7 @@
     height: 70px;
     bottom: 35px;
     right: 35px;    
+}
+.add_button i{
+    color: #fff;
 }
