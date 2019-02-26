@@ -1,11 +1,12 @@
 .modal__overlay{
     position: absolute;
+    cursor: pointer;
     z-index: 3;
-    top: 50px;
+    top: 0;
     bottom: 0;
     left: 0;
     right: 0;
-    background-color: rgba(70, 70, 70, 0.54);
+    background: rgba(70, 70, 70, 0.54);
     transition: 0.3s;
     /**
         of cource, absolutely no browser support
@@ -15,15 +16,14 @@
     backdrop-filter: blur(19px);
 }
 .modal__overlay:hover {
-    background-color: rgba(70, 70, 70, 0.74);
+    background: rgba(30, 30, 30, 0.54);
 }
 .modal__container{
     position: absolute;
     top: 200px;
     left: calc( 50% - 200px );
-
     width: 400px;
-    background-color: #fff;
+    background: #fff;
     z-index: 4;
 }
 .modal__header{
@@ -57,18 +57,34 @@
     padding: 8px 30px;
     border: 2px solid #39B9FF;
     color: #39B9FF;
-    background-color: #fff;
+    background: #fff;
     font: 19px 'Roboto Condensed';
     text-transform: uppercase;
+    transition: 0.2s;
+    cursor: pointer;
 }
 .modal-btn i {
     color: #39B9FF;
     padding-right: 5px;
+    transition: 0.2s;
+}
+
+.modal-btn:hover {
+    border-color: #29A9EF;
+    color: #fff;
+    background: #29A9EF;
+}
+.modal-btn:hover i {
+    color: #fff;
 }
 
 .btn-primary {
     color: #fff;
-    background-color: #39B9FF;
+    background: #39B9FF;
+}
+.btn-primary:hover{
+    background: #29A9EF;
+    border-color: #29A9EF;
 }
 .btn-primary i {
     color: #fff;

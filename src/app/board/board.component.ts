@@ -14,7 +14,7 @@ export class BoardComponent implements OnInit {
     { id : 932, text : "Some another note" },
     { id : 3221, text : "Lorem ipsum dolor sit amet, consectetur adipisicing elit." },
     { id : 733, text : "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ex quod nesciunt esse." },
-    { id : 0, text : "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ex quod nesciunt esse, voluptatem architecto porro." }
+    { id : 1337, text : "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ex quod nesciunt esse, voluptatem architecto porro." }
   ];
   columns : { id : number, text : string }[][] = [];
   
@@ -32,6 +32,11 @@ export class BoardComponent implements OnInit {
 
   onAddButton() {
     console.log("Add");
+  }
+
+  onDelete( id : number ) {
+    console.log("onDelete");
+    this.notes.splice( id, 1 );
   }
 
   ngOnInit() {

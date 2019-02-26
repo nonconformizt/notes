@@ -6,7 +6,7 @@ import { Component } from '@angular/core';
   styleUrls: ['./modal.component.css']
 })
 export class ModalComponent {
-  isOpen : boolean = false;
+  isOpen : boolean =  false;
   title : string = "Delete this item?";
   message : string = "Are you sure you want to remove this note permanently?";
 }

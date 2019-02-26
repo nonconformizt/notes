@@ -14,7 +14,6 @@
     width: 60px;
     height: 60px;
     cursor: pointer;
-    outline: none;
     transition: 0.2s;
 }
 .add_button:hover{
