@@ -1,6 +1,6 @@
-<div class="note">
+<div class="note" [ngClass]="{ 'editing' : editing } ">
 
-    <div class="inner" usereditable="true" >{{ note.text }}</div>
+    <div #inner class="inner">{{ note.text }}</div>
 
     <div class="controls">
         <div class="control edit" (click)="onEditClick()">
@@ -14,4 +14,4 @@
         </div>
     </div>
     
-</div>
+</div>  

@@ -38,10 +38,6 @@
     line-height: 1.2;
 }
 
-.inner.editing{
-    
-}
-
 /**
 *  CONTROLS 
 */
@@ -71,4 +67,13 @@
 }
 .control:hover .fal {
     color: #fff;
+}
+
+/* EDITING MODE */
+
+.note.editing {
+    box-shadow: 0px 0px 30px #39b9ff, 0px 0px 15px #39b9ff, 0px 0px 10px #39b9ff, 0px 0px 2px #39b9ff, 0px 0px 1px #39b9ff, 0px 0px 0px #39b9ff;
+}
+.note.editing .controls {
+    display: none;
 }

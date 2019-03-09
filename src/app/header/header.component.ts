@@ -13,7 +13,7 @@ export class HeaderComponent{
       this.toggleDropdown();
   }
 
-  isDropdown (target) {
+  isDropdown (target : HTMLElement) {    
     if( target.classList.contains('header__dropdown') || 
         target.classList.contains('header__user-section') || 
         target.classList.contains('header__username') || 
