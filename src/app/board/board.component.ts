@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { NotesService } from './notes.service';
 
 @Component({
   selector: 'app-board',
@@ -6,18 +7,17 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./board.component.css']
 })
 export class BoardComponent implements OnInit {
-
-  notes : { id : number, text : string }[] = 
-  [
-    { id : 0, text : "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ex quod nesciunt esse, voluptatem architecto porro." },
-    { id : 12, text : "This app is powered by Angular!" },
-    { id : 932, text : "Some another note" },
-    { id : 3221, text : "Lorem ipsum dolor sit amet, consectetur adipisicing elit." },
-    { id : 733, text : "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ex quod nesciunt esse." },
-    { id : 1337, text : "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ex quod nesciunt esse, voluptatem architecto porro." }
-  ];
+  
+  notes : { id : number, text : string }[] = [];
   columns : { id : number, text : string }[][] = [];
   
+  constructor( private notesService: NotesService ) {}
+  
+  ngOnInit() {
+    this.notes = this.notesService.notes;
+    this.splitColumns();
+  }
+
   splitColumns() {
     var len = this.notes.length;
     
@@ -34,12 +34,9 @@ export class BoardComponent implements OnInit {
     console.log("Add");
   }
 
-  onDelete( id : number ) {
-    console.log("onDelete");
-    this.notes.splice( id, 1 );
-  }
-
-  ngOnInit() {
+  onDelete( id ) {
+    console.log("Board onDelete() fired");
+    this.notesService.delete(id);
     this.splitColumns();
   }
 

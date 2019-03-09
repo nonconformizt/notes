@@ -9,6 +9,9 @@ import { NoteComponent } from './board/note/note.component';
 import { AddButtonComponent } from './board/add-button/add-button.component';
 import { ModalComponent } from './board/modal/modal.component';
 
+import { NotesService } from './board/notes.service';
+import { ModalService } from './board/modal/modal.service';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -22,7 +25,7 @@ import { ModalComponent } from './board/modal/modal.component';
     BrowserModule,
     AppRoutingModule
   ],
-  providers: [],
+  providers: [NotesService, ModalService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

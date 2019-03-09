@@ -1,4 +1,5 @@
 import { Component, Input, Output, EventEmitter } from '@angular/core';
+import { ModalService } from '../modal/modal.service';
 
 @Component({
   selector: 'app-note',
@@ -7,9 +8,27 @@ import { Component, Input, Output, EventEmitter } from '@angular/core';
 })
 export class NoteComponent {
   @Input() note : { id: number, text : string };
-  @Output() delete = new EventEmitter<{ id : string }>();
+  @Output() delete = new EventEmitter<number>();
 
-  onDeleteClick( e : MouseEvent ) {
-    console.log( "User wants to delete note with id " + this.note.id);
+  editing : boolean = false;
+
+  constructor( private modal : ModalService ) {}
+
+  onDeleteClick() {
+    // first ask user
+    this.modal.get();
+
+    let sub = this.modal.responce.subscribe((choice : boolean) => {
+      if (choice)
+        this.delete.emit(this.note.id);
+      sub.unsubscribe();
+    });
+
   }
+
+  onEditClick() {
+    this.editing = true;
+  }
+
+
 }

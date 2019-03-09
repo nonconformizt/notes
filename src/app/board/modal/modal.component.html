@@ -3,9 +3,9 @@
     <div class="modal__header">{{ title }}</div>
     <div class="modal__message">{{ message }}</div>
     <div class="modal__buttons">
-      <button class="modal-btn btn-yes btn-primary"><i class="fal fa-check"></i> Yes</button>
-      <button class="modal-btn btn-no"><i class="fal fa-times"></i> No</button>
+      <button class="modal-btn btn-yes btn-primary" (click)="onYes()"><i class="fal fa-check"></i> Yes</button>
+      <button class="modal-btn btn-no" (click)="onNo()"><i class="fal fa-times"></i> No</button>
     </div>
   </div>
-  <div class="modal__overlay"></div>
+  <div class="modal__overlay" (click)="onNo()"></div>
 </div>

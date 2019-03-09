@@ -1,12 +1,12 @@
 <div class="note">
 
-    <div class="inner">{{ note.text }}</div>
+    <div class="inner" usereditable="true" >{{ note.text }}</div>
 
     <div class="controls">
-        <div class="control edit">
+        <div class="control edit" (click)="onEditClick()">
             <i class="fal fa-pen"></i>
         </div>
-        <div class="control delete" (click)="onDeleteClick($event)">
+        <div class="control delete" (click)="onDeleteClick()">
             <i class="fal fa-trash-alt"></i>
         </div>
         <div class="control clone">
