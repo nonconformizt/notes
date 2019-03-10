@@ -34,7 +34,7 @@ export class NoteComponent {
 
     let sub = this.modal.responce.subscribe((choice : boolean) => {
       if (choice)
-        this.delete.emit(this.note.id);
+        this.notesService.delete( this.note.id );
       sub.unsubscribe();
     });
 
@@ -59,6 +59,9 @@ export class NoteComponent {
     this.editing = false;
     this.inner.nativeElement.setAttribute("contenteditable", false);
     window.getSelection().removeAllRanges();
+  }
 
+  onCloneClick() {
+    this.notesService.clone( this.note.id );
   }
 }

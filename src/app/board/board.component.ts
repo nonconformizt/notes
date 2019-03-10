@@ -8,7 +8,7 @@ import { NotesService } from './notes.service';
 })
 export class BoardComponent implements OnInit {
   
-  notes : { id : number, text : string }[] = [];
+  notes : { id : number, text : string }[];
   columns : { id : number, text : string }[][] = [];
   
   constructor( private notesService: NotesService ) {}
@@ -16,6 +16,10 @@ export class BoardComponent implements OnInit {
   ngOnInit() {
     this.notes = this.notesService.notes;
     this.splitColumns();
+    this.notesService.changed
+      .subscribe(()=>{
+        this.splitColumns();
+      });
   }
 
   splitColumns() {
@@ -32,12 +36,6 @@ export class BoardComponent implements OnInit {
 
   onAddButton() {
     console.log("Add");
-  }
-
-  onDelete( id ) {
-    console.log("Board onDelete() fired");
-    this.notesService.delete(id);
-    this.splitColumns();
   }
 
 }
