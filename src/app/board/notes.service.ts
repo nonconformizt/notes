@@ -14,27 +14,22 @@ export class NotesService {
   changed = new EventEmitter<{ id : number, text : string }>();
 
   delete( id : number ) {
-    var needle = -1;
-    
-    // find note
-    for( let i = this.notes.length; i--; )
-      if( this.notes[i].id == id )
-        needle = i;
+   
+    var needle = this.findNote( id );
 
-    if( needle !== -1 )
-        this.notes.splice( needle, 1 );
+    if( needle !== -1 ) {
 
-    this.changed.emit();
-    // save to server
-    // ..............
+      this.notes.splice( needle, 1 );
+      this.changed.emit();
+      // save to server
+      // ..............
+    }
+
   }
 
   updateText( id : number, newText : string ) {
-    var needle = -1;
-
-    for( let i = this.notes.length; i--; )
-    if( this.notes[i].id == id )
-      needle = i;
+    
+    var needle = this.findNote( id );
 
     if( needle !== -1 )
       this.notes[needle].text = newText;
@@ -44,6 +39,20 @@ export class NotesService {
   }
 
   clone( id : number ) {
+    
+    var needle  = this.findNote( id );
+
+    if( needle !== -1 ) {
+
+      this.notes.splice( needle, 0, this.notes[needle] );
+      this.changed.emit();
+      // save to server
+      // ..............
+    }
+
+  }
+
+  private findNote( id: number ) : number {
     var needle = -1;
     
     // find note
@@ -51,12 +60,6 @@ export class NotesService {
       if( this.notes[i].id == id )
         needle = i;
 
-    if( needle !== -1 )
-        this.notes.push( this.notes[needle] );
-
-    this.changed.emit();
-    
-    // save to server
-    // ..............
+    return needle;
   }
 }
