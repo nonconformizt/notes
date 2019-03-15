@@ -1,0 +1,10 @@
+
+.auth-wrapper {
+    position: absolute;
+    top: 50px;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: url(/assets/images/waves.jpg) no-repeat center -100px;
+    background-size: cover;
+}

@@ -11,6 +11,8 @@ import { ModalComponent } from './board/modal/modal.component';
 
 import { NotesService } from './board/notes.service';
 import { ModalService } from './board/modal/modal.service';
+import { AuthComponent } from './auth/auth.component';
+import { SignInComponent } from './auth/sign-in/sign-in.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +21,9 @@ import { ModalService } from './board/modal/modal.service';
     BoardComponent,
     NoteComponent,
     AddButtonComponent,
-    ModalComponent
+    ModalComponent,
+    AuthComponent,
+    SignInComponent,
   ],
   imports: [
     BrowserModule,
