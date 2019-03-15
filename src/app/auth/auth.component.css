@@ -1,10 +1,109 @@
 
 .auth-wrapper {
     position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     top: 50px;
     left: 0;
     right: 0;
     bottom: 0;
     background: url(/assets/images/waves.jpg) no-repeat center -100px;
     background-size: cover;
+}
+
+.modal__container {
+    left: calc( 50% - 150px );
+    width: 300px;
+    background: #fff;
+    z-index: 4;
+    margin-top: -100px;
+}
+
+.modal__header {
+    background: #39B9FF;
+    height: 44px;
+    color: #fff;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-transform: uppercase;
+    font: 23px 'Roboto Condensed';
+}
+
+.modal__form {
+    padding: 21px 27px 14px;
+}
+
+.modal-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    margin: 15px auto 0;
+    padding: 8px 0;
+    width: 100%;
+    color: #fff;
+    background: #39B9FF;
+    font: 100 17px 'Noto Sans';
+    text-transform: uppercase;
+    transition: 0.2s;
+    cursor: pointer;
+}
+
+.modal-btn:hover {
+    background: #29A9EF;
+    border-color: #29A9EF;
+}
+
+.modal-btn i {
+    color: #fff;
+    padding-left: 8px;
+    transition: 0.2s;
+    font-size: 14px;
+}
+
+.modal-btn:hover i {
+    padding-left: 15px;
+}
+
+label, input {
+    display: block;
+}
+
+.signin_label {
+    font: 14px 'Noto Sans';
+    color: rgba(48, 48, 48, 0.92);
+    margin-bottom: 6px;
+}
+
+.signin_input {
+    margin-bottom: 10px;
+    width: 100%;
+    border: 2px solid rgba(57, 185, 255, 0.68);
+    font-size: 16px;
+    padding: 6px 10px;
+    outline: none;
+}
+
+input#password {
+    letter-spacing: 4px;
+}
+
+.noaccount {
+    font-size: 12px;
+    color: #3BA2ED;
+    padding-top: 12px;
+    text-align: center;
+}
+
+.noaccount a {
+    color: inherit;
+    text-decoration: none;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.noaccount a:hover {
+    text-decoration: underline;
 }

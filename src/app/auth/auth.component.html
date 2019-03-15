@@ -1,3 +1,93 @@
 <div class="auth-wrapper">
-  <app-sign-in></app-sign-in>
+  <div class="modal">
+    <div class="modal__container">
+
+      <div class="modal__header">{{ title }}</div>
+
+      <form *ngIf="!newAccount" class="modal__form">
+  
+        <div class="form_group">
+          <label for="username" class="signin_label">Your username:</label>
+          <input 
+            type="text" 
+            name="name" 
+            id="username" 
+            class="signin_input" 
+            autocomplete="nickname username"
+          >
+        </div>
+  
+        <div class="form_group">
+          <label for="name" class="signin_label">Your password:</label>
+          <input 
+            type="password" 
+            name="password" 
+            id="password" 
+            class="signin_input" 
+            autocomplete="current-password"
+          >
+        </div>
+  
+        <button class="modal-btn btn-forward" (click)="logIn($event)">
+          Continue
+          <i class="fal fa-arrow-right"></i>
+        </button>
+  
+        <div class="noaccount">
+          Don’t have an account? 
+          <a (click)="switchMode()">Register</a> 
+          now!
+        </div>
+        
+      </form>
+      <!-- ELSE -->
+      <form *ngIf="newAccount" class="modal__form">
+  
+        <div class="form_group">
+          <label for="username" class="signin_label">Select username:</label>
+          <input 
+            type="text" 
+            name="name" 
+            id="username" 
+            class="signin_input" 
+            autocomplete="nickname username"
+          >
+        </div>
+
+        <div class="form_group">
+          <label for="email" class="signin_label">Your email:</label>
+          <input 
+            type="email" 
+            name="email" 
+            id="email" 
+            class="signin_input" 
+            autocomplete="email"
+          >
+        </div>
+  
+        <div class="form_group">
+          <label for="name" class="signin_label">New password:</label>
+          <input 
+            type="password" 
+            name="password" 
+            id="password" 
+            class="signin_input" 
+            autocomplete="new-password"
+          >
+        </div>
+  
+        <button class="modal-btn btn-forward" (click)="createAccount($event)">
+          Create an account
+          <i class="fal fa-arrow-right"></i>
+        </button>
+  
+        <div class="noaccount">
+          Already have an account? 
+          <a (click)="switchMode()">Sign in!</a>
+        </div>
+        
+      </form>
+
+    </div>
+  </div>
 </div>
