@@ -1,35 +1,38 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
+import { NgForm } from '@angular/forms';
 
 @Component({
   selector: 'app-auth',
   templateUrl: './auth.component.html',
-  styleUrls: ['./auth.component.css']
+  styleUrls: ['./auth.component.css'],
 })
-export class AuthComponent {
-  title : string = 'Log in'
-  newAccount : boolean = false;
+export class AuthComponent implements OnInit {
+  title : string;
+  newAccount : boolean;
 
   constructor( private router: Router,
-               private url: ActivatedRoute ) { }
+               private route: ActivatedRoute ) { }
 
-  switchMode() {
-    this.newAccount = !this.newAccount;
-    this.title = (this.newAccount) ? 'Sign up' : 'Log in';
+  ngOnInit() {
+    if( this.route.snapshot.url[1].path === 'signup' ) {
+      this.newAccount = true;
+      this.title = 'Sign up';
+    } else {
+      this.newAccount = false;
+      this.title = 'Log in';
+    }
   }
 
-  createAccount(e : MouseEvent) {
-    console.log('create acc');
-    console.log(this.url.snapshot);
-    
+  signUp( form : NgForm ) {
+    console.warn("Is valid: " + form.valid);
+    console.log(form);
     // this.router.navigate(['/']);
-
-    e.preventDefault();
   }
 
-  logIn() {
-    console.log('log in');
-    
-    this.router.navigate(['/']);
+  logIn( form : NgForm ) {
+    console.warn("Is valid: " + form.valid);
+    console.log(form);
+    // this.router.navigate(['/']);
   }
 }
