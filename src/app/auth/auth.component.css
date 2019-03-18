@@ -77,6 +77,15 @@ label, input {
     margin-bottom: 6px;
 }
 
+.invalid {
+    font: 14px 'Noto Sans';
+    color: rgb(255, 24, 24);
+    display: block;
+    margin: -6px 0 10px;
+}
+
+
+
 .signin_input {
     margin-bottom: 10px;
     width: 100%;

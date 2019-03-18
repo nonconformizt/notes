@@ -10,24 +10,28 @@
           <label for="username" class="signin_label">Your username:</label>
           <input 
             ngModel
-            type="text" 
+            type="text"
             name="name"
+            #name="ngModel"
             required
             id="username" 
             class="signin_input" 
             autocomplete="nickname username">
+          <span *ngIf="name.touched && name.invalid" class="invalid">Username is invalid!</span>
         </div>
   
         <div class="form_group">
-          <label for="name" class="signin_label">Your password:</label>
+          <label for="password" class="signin_label">Your password:</label>
           <input 
             ngModel
-            type="password" 
+            type="password"
             name="password" 
+            #pass="ngModel"
             required
             id="password" 
-            class="signin_input" 
+            class="signin_input"
             autocomplete="current-password">
+          <span *ngIf="pass.touched && pass.invalid" class="invalid">Password is invalid!</span>
         </div>
   
         <button class="modal-btn btn-forward" type="submit">
@@ -51,10 +55,12 @@
             ngModel
             type="text"
             name="name"
+            #name="ngModel"
             required
             id="username"
             class="signin_input"
             autocomplete="nickname username">
+          <span *ngIf="name.touched && name.invalid" class="invalid">Username is invalid!</span>          
         </div>
 
         <div class="form_group">
@@ -63,22 +69,27 @@
             ngModel
             type="email"
             name="email"
+            #email="ngModel"
             required
+            email
             id="email"
             class="signin_input"
             autocomplete="email">
+          <span *ngIf="email.touched && email.invalid" class="invalid">Email is invalid!</span>          
         </div>
   
         <div class="form_group">
-          <label for="name" class="signin_label">New password:</label>
+          <label for="password" class="signin_label">New password:</label>
           <input 
             ngModel
             type="password" 
             name="password"
+            #pass="ngModel"
             required
             id="password" 
             class="signin_input" 
             autocomplete="new-password">
+          <span *ngIf="pass.touched && pass.invalid" class="invalid">Password is invalid!</span>          
         </div>
   
         <button class="modal-btn btn-forward" type="submit">
